@@ -13,6 +13,10 @@ function ParticleCanvas() {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
+    const accentRGB =
+      getComputedStyle(document.documentElement)
+        .getPropertyValue('--accent-primary-rgb')
+        .trim() || '59, 130, 246'
     let animId
     let neurons = []
     let signals = []
@@ -56,12 +60,12 @@ function ParticleCanvas() {
 
         ctx.beginPath()
         ctx.arc(this.x, this.y, r * 4, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(220, 38, 38, ${this.opacity * 0.06 * pulseFactor})`
+        ctx.fillStyle = `rgba(${accentRGB}, ${this.opacity * 0.06 * pulseFactor})`
         ctx.fill()
 
         ctx.beginPath()
         ctx.arc(this.x, this.y, r * 1.5, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(220, 38, 38, ${this.opacity * 0.25 * pulseFactor})`
+        ctx.fillStyle = `rgba(${accentRGB}, ${this.opacity * 0.25 * pulseFactor})`
         ctx.fill()
 
         ctx.beginPath()
@@ -89,7 +93,7 @@ function ParticleCanvas() {
 
         ctx.beginPath()
         ctx.arc(x, y, this.size * 2, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(220, 38, 38, ${fade * 0.15})`
+        ctx.fillStyle = `rgba(${accentRGB}, ${fade * 0.15})`
         ctx.fill()
 
         ctx.beginPath()
@@ -120,7 +124,7 @@ function ParticleCanvas() {
             ctx.beginPath()
             ctx.moveTo(neurons[i].x, neurons[i].y)
             ctx.lineTo(neurons[j].x, neurons[j].y)
-            ctx.strokeStyle = `rgba(220, 38, 38, ${alpha})`
+            ctx.strokeStyle = `rgba(${accentRGB}, ${alpha})`
             ctx.lineWidth = 0.8
             ctx.stroke()
 
@@ -302,7 +306,7 @@ export default function Hero() {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: #00ff88;
+          background: var(--status-online);
           animation: pulseGlow 2s ease-in-out infinite;
         }
 

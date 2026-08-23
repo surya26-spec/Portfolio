@@ -4,32 +4,32 @@ const SKILLS = [
   {
     category: 'Programming',
     items: ['C', 'Python', 'SQL'],
-    gradient: 'linear-gradient(135deg, #00d4ff, #7b61ff)',
+    gradient: 'var(--gradient-primary)',
   },
   {
     category: 'Networking',
     items: ['TCP/IP', 'Routing & Switching', 'Subnetting', 'VLAN', 'DNS & DHCP', 'Network Security', 'Linux Networking', 'Network Monitoring'],
-    gradient: 'linear-gradient(135deg, #00ff88, #00d4ff)',
+    gradient: 'var(--gradient-secondary)',
   },
   {
     category: 'AI / ML',
     items: ['Classification Models (SVM, Decision Trees)', 'Random Forest', 'Data Preprocessing', 'Intrusion Detection Systems', 'Vulnerability Analysis'],
-    gradient: 'linear-gradient(135deg, #ffb347, #ff3cac)',
+    gradient: 'var(--gradient-accent)',
   },
   {
     category: 'Databases',
     items: ['SQL'],
-    gradient: 'linear-gradient(135deg, #784ba0, #ff3cac)',
+    gradient: 'var(--gradient-primary)',
   },
   {
     category: 'Tools',
     items: ['Git', 'OpenCV', 'Wireshark', 'Cisco Packet Tracer', 'Opencode', 'Antigravity'],
-    gradient: 'linear-gradient(135deg, #7b61ff, #00d4ff)',
+    gradient: 'var(--gradient-secondary)',
   },
   {
     category: 'Platforms',
     items: ['Linux'],
-    gradient: 'linear-gradient(135deg, #ff3cac, #784ba0)',
+    gradient: 'var(--gradient-accent)',
   },
 ]
 

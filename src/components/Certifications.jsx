@@ -72,7 +72,7 @@ export default function Certifications() {
         }
 
         .cert-item:hover {
-          border-color: rgba(255, 60, 172, 0.15);
+          border-color: var(--accent-secondary-border);
           transform: translateX(10px);
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
@@ -84,8 +84,8 @@ export default function Certifications() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(255, 60, 172, 0.06);
-          border: 1px solid rgba(255, 60, 172, 0.1);
+          background: var(--accent-secondary-dim);
+          border: 1px solid var(--accent-secondary-border);
           border-radius: 8px;
           color: var(--accent-secondary);
         }

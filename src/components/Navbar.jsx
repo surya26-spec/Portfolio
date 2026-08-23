@@ -87,7 +87,7 @@ export default function Navbar() {
         }
 
         .navbar.scrolled {
-          background: rgba(7, 7, 13, 0.8);
+          background: color-mix(in srgb, var(--bg-primary) 82%, transparent);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
           border-bottom: 1px solid var(--border);
@@ -211,7 +211,7 @@ export default function Navbar() {
             right: -100%;
             width: 260px;
             height: 100vh;
-            background: rgba(7, 7, 13, 0.95);
+            background: color-mix(in srgb, var(--bg-primary) 96%, transparent);
             backdrop-filter: blur(20px);
             border-left: 1px solid var(--border);
             flex-direction: column;

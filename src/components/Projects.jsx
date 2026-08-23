@@ -5,13 +5,13 @@ const PROJECTS = [
     title: 'Driver Drowsiness Detection System',
     desc: 'Engineered a real-time computer vision system that detects driver fatigue through eye-state analysis at 30 FPS, triggering audible alerts within 2 seconds of prolonged eye closure to reduce accident risk.',
     tags: ['Python', 'OpenCV', 'Haar Cascade Classifiers'],
-    gradient: 'linear-gradient(135deg, #00d4ff, #7b61ff)',
+    gradient: 'var(--gradient-primary)',
   },
   {
     title: 'AI-Based Intrusion Detection System (SecuVerse)',
     desc: 'Designed an ML-based system that classifies network traffic as normal or malicious across multiple attack categories using SVM, Decision Tree, and Random Forest models, generating real-time alerts for anomalous traffic.',
     tags: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Network Security'],
-    gradient: 'linear-gradient(135deg, #ff3cac, #784ba0)',
+    gradient: 'var(--gradient-secondary)',
   },
 ]
 
