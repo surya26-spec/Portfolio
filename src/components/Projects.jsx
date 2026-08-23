@@ -3,14 +3,14 @@ import { useEffect, useRef } from 'react'
 const PROJECTS = [
   {
     title: 'Driver Drowsiness Detection System',
-    desc: 'Built a computer vision system to detect driver fatigue using eye-state recognition. Used image processing and real-time monitoring to trigger alert mechanisms, improving road safety by preventing accident-prone conditions.',
-    tags: ['Python', 'OpenCV', 'Computer Vision'],
+    desc: 'Engineered a real-time computer vision system that detects driver fatigue through eye-state analysis at 30 FPS, triggering audible alerts within 2 seconds of prolonged eye closure to reduce accident risk.',
+    tags: ['Python', 'OpenCV', 'Haar Cascade Classifiers'],
     gradient: 'linear-gradient(135deg, #00d4ff, #7b61ff)',
   },
   {
     title: 'AI-Based Intrusion Detection System (SecuVerse)',
-    desc: 'Developed an intrusion detection system using machine learning to classify normal and malicious network traffic. Preprocessed network datasets and trained classification models for attack detection, identifying suspicious patterns and generating real-time alerts.',
-    tags: ['Python', 'Machine Learning', 'Network Security'],
+    desc: 'Designed an ML-based system that classifies network traffic as normal or malicious across multiple attack categories using SVM, Decision Tree, and Random Forest models, generating real-time alerts for anomalous traffic.',
+    tags: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Network Security'],
     gradient: 'linear-gradient(135deg, #ff3cac, #784ba0)',
   },
 ]

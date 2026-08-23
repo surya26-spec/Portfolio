@@ -69,26 +69,26 @@ export default function About() {
           <div className="about-text">
             <p>
               I'm an Information Technology student at Government College of
-              Engineering, Erode, with a strong passion for cybersecurity,
-              secure coding, and web technologies.
+              Engineering, Erode, with a strong passion for computer
+              networking, network security, and intelligent systems.
             </p>
             <p>
-              My academic journey has equipped me with a solid foundation in
-              Python, Java, and web technologies, while my project work has
-              given me hands-on experience in computer vision, machine learning,
-              and intrusion detection systems.
+              My academic journey has built a solid foundation in C, Python,
+              and SQL, while hands-on project work has taken me into TCP/IP
+              fundamentals, subnetting, VLANs, DNS, and DHCP — along with
+              machine learning and real-time computer vision.
             </p>
             <p>
-              I'm driven by the challenge of making systems more secure and
-              building technology that has a real impact on safety and
-              reliability.
+              I'm driven by curiosity about how data moves across networks and
+              by the challenge of keeping that movement fast, reliable, and
+              secure.
             </p>
           </div>
 
           <div className="about-stats">
             <div className="stat-card">
               <span className="stat-number gradient-text">
-                <Counter target={8} />.<Counter target={58} />
+                <Counter target={8} />.<Counter target={66} />
               </span>
               <span className="stat-label">CGPA</span>
             </div>

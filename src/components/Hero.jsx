@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 
 const TYPING_TITLES = [
-  'Cybersecurity Enthusiast',
-  'IT Student',
-  'Secure Coding Advocate',
+  'Computer Networking Enthusiast',
+  'Information Technology Student',
+  'Aspiring Network Engineer',
 ]
 
 function ParticleCanvas() {
@@ -17,12 +17,20 @@ function ParticleCanvas() {
     let neurons = []
     let signals = []
 
+    const prefersReducedMotion =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     const resize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
     }
     resize()
     window.addEventListener('resize', resize)
+
+    if (prefersReducedMotion) {
+      return () => window.removeEventListener('resize', resize)
+    }
 
     class Neuron {
       constructor() {
@@ -187,8 +195,9 @@ export default function Hero() {
           </span>
         </div>
         <p className="hero-desc">
-          Passionate about secure coding, network monitoring, and building
-          intelligent systems that make the digital world safer.
+          Passionate about how networks work — TCP/IP, routing &amp; switching,
+          DNS, and network security — and building intelligent systems that
+          keep the digital world connected.
         </p>
         <div className="hero-actions">
           <a href="#projects" className="btn-primary">

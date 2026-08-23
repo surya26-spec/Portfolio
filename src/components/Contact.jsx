@@ -77,8 +77,8 @@ export default function Contact() {
         </div>
 
         <p className="contact-subtitle">
-          I'm currently looking for entry-level opportunities in IT and
-          cybersecurity. Feel free to reach out!
+          I'm currently seeking software engineering roles where I can apply my
+          passion for computer networking. Feel free to reach out!
         </p>
 
         <div className="contact-grid">

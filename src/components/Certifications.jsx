@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react'
 
 const CERTIFICATIONS = [
-  'NPTEL — Introduction to Industry 4.0 and Industrial Internet of Things (87%)',
-  'NPTEL — Human Computer Interaction (95%)',
-  'Infosys SpringBoard — C Programming',
-  'Infosys SpringBoard — IoT Platforms Overview',
+  'NPTEL — Introduction to Industry 4.0 and Industrial Internet of Things',
+  'NPTEL — Human-Computer Interaction (95%)',
   'Cisco Networking Academy — Introduction to Cybersecurity',
+  'Infosys Springboard — C Programming',
+  'Infosys Springboard — IoT Platforms Overview',
 ]
 
 export default function Certifications() {

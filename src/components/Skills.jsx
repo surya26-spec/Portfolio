@@ -2,34 +2,34 @@ import { useEffect, useRef } from 'react'
 
 const SKILLS = [
   {
-    category: 'Languages',
-    items: ['Python', 'Java', 'JavaScript'],
+    category: 'Programming',
+    items: ['C', 'Python', 'SQL'],
     gradient: 'linear-gradient(135deg, #00d4ff, #7b61ff)',
   },
   {
-    category: 'Web',
-    items: ['HTML', 'CSS'],
-    gradient: 'linear-gradient(135deg, #ff3cac, #784ba0)',
-  },
-  {
-    category: 'Cybersecurity',
-    items: ['Intrusion Detection', 'Network Monitoring', 'Authentication'],
+    category: 'Networking',
+    items: ['TCP/IP', 'Routing & Switching', 'Subnetting', 'VLAN', 'DNS & DHCP', 'Network Security', 'Linux Networking', 'Network Monitoring'],
     gradient: 'linear-gradient(135deg, #00ff88, #00d4ff)',
   },
   {
     category: 'AI / ML',
-    items: ['Classification Models', 'Data Preprocessing', 'Computer Vision'],
+    items: ['Classification Models (SVM, Decision Trees)', 'Random Forest', 'Data Preprocessing', 'Intrusion Detection Systems', 'Vulnerability Analysis'],
     gradient: 'linear-gradient(135deg, #ffb347, #ff3cac)',
   },
   {
-    category: 'Tools & Platforms',
-    items: ['Linux', 'OpenCV', 'Git', 'MySQL'],
+    category: 'Databases',
+    items: ['SQL'],
+    gradient: 'linear-gradient(135deg, #784ba0, #ff3cac)',
+  },
+  {
+    category: 'Tools',
+    items: ['Git', 'OpenCV', 'Wireshark', 'Cisco Packet Tracer', 'Opencode', 'Antigravity'],
     gradient: 'linear-gradient(135deg, #7b61ff, #00d4ff)',
   },
   {
-    category: 'Networking',
-    items: ['Network Protocols', 'Security Analysis', 'Monitoring'],
-    gradient: 'linear-gradient(135deg, #784ba0, #ff3cac)',
+    category: 'Platforms',
+    items: ['Linux'],
+    gradient: 'linear-gradient(135deg, #ff3cac, #784ba0)',
   },
 ]
 
