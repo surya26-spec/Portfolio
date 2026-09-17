@@ -70,13 +70,14 @@ export default function About() {
             <p>
               I'm an Information Technology student at Government College of
               Engineering, Erode, with a strong passion for computer
-              networking, network security, and intelligent systems.
+              networking and network security, along with a growing interest
+              in machine learning.
             </p>
             <p>
-              My academic journey has built a solid foundation in C, Python,
+              My academic journey has introduced me to C, Python,
               and SQL, while hands-on project work has taken me into TCP/IP
-              fundamentals, subnetting, VLANs, DNS, and DHCP — along with
-              machine learning and real-time computer vision.
+              fundamentals, subnetting, DNS, and DHCP — along with machine
+              learning and real-time computer vision.
             </p>
             <p>
               I'm driven by curiosity about how data moves across networks and
@@ -87,19 +88,19 @@ export default function About() {
 
           <div className="about-stats">
             <div className="stat-card">
-              <span className="stat-number gradient-text">
+              <span className="stat-number">
                 <Counter target={8} />.<Counter target={66} />
               </span>
               <span className="stat-label">CGPA</span>
             </div>
             <div className="stat-card">
-              <span className="stat-number gradient-text">
+              <span className="stat-number">
                 <Counter target={2} />+
               </span>
               <span className="stat-label">Projects</span>
             </div>
             <div className="stat-card">
-              <span className="stat-number gradient-text">
+              <span className="stat-number">
                 <Counter target={5} />
               </span>
               <span className="stat-label">Certifications</span>
@@ -112,7 +113,7 @@ export default function About() {
         .about-grid {
           display: grid;
           grid-template-columns: 1.5fr 1fr;
-          gap: 48px;
+          gap: 64px;
           align-items: center;
           max-width: 900px;
           margin: 0 auto;
@@ -134,35 +135,17 @@ export default function About() {
         }
 
         .stat-card {
-          background: var(--bg-card);
+          background: var(--bg-primary);
           border: 1px solid var(--border);
           border-radius: var(--radius);
           padding: 32px 20px;
           text-align: center;
           transition: var(--transition);
-          backdrop-filter: blur(10px);
-          position: relative;
-          overflow: hidden;
         }
-
-        .stat-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: var(--gradient-primary);
-          opacity: 0;
-          transition: var(--transition);
-        }
-
-        .stat-card:hover::before { opacity: 1; }
 
         .stat-card:hover {
-          border-color: var(--accent-primary-border);
-          transform: translateY(-6px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), var(--glow-primary);
+          border-color: var(--text-muted);
+          transform: translateY(-2px);
         }
 
         .stat-number {
@@ -170,10 +153,12 @@ export default function About() {
           font-size: 2.2rem;
           font-weight: 800;
           margin-bottom: 4px;
+          color: var(--text-primary);
+          letter-spacing: -1px;
         }
 
         .stat-label {
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           color: var(--text-muted);
           font-family: var(--font-mono);
           text-transform: uppercase;
@@ -181,7 +166,7 @@ export default function About() {
         }
 
         @media (max-width: 768px) {
-          .about-grid { grid-template-columns: 1fr; gap: 32px; }
+          .about-grid { grid-template-columns: 1fr; gap: 40px; }
           .about-stats { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 480px) {

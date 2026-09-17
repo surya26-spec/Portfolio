@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ onPreviewResume }) {
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('#hero')
   const [menuOpen, setMenuOpen] = useState(false)
@@ -43,7 +43,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-inner">
         <a href="#hero" className="navbar-logo" onClick={(e) => { e.preventDefault(); handleClick('#hero') }}>
-          Surya<span className="navbar-dot">.</span>
+          Surya P
         </a>
 
         <button
@@ -68,7 +68,7 @@ export default function Navbar() {
             </li>
           ))}
           <li className="nav-resume-li">
-            <a href="/Resume.pdf" download className="nav-resume-btn" onClick={() => setMenuOpen(false)}>
+            <a href="/Resume.pdf" className="nav-resume-btn" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onPreviewResume() }}>
               Resume
             </a>
           </li>
@@ -82,16 +82,17 @@ export default function Navbar() {
           left: 0;
           right: 0;
           z-index: 1000;
-          padding: 18px 24px;
+          padding: 20px 24px;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-bottom: 1px solid transparent;
           transition: var(--transition);
         }
 
         .navbar.scrolled {
-          background: color-mix(in srgb, var(--bg-primary) 82%, transparent);
-          backdrop-filter: blur(24px);
-          -webkit-backdrop-filter: blur(24px);
-          border-bottom: 1px solid var(--border);
-          padding: 12px 24px;
+          border-bottom-color: var(--border);
+          padding: 14px 24px;
         }
 
         .navbar-inner {
@@ -103,32 +104,26 @@ export default function Navbar() {
         }
 
         .navbar-logo {
-          font-size: 1.4rem;
-          font-weight: 800;
+          font-size: 1.25rem;
+          font-weight: 700;
           letter-spacing: -0.5px;
           color: var(--text-primary);
-        }
-
-        .navbar-dot {
-          background: var(--gradient-accent);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
         }
 
         .navbar-links {
           display: flex;
           align-items: center;
-          gap: 28px;
+          gap: 32px;
         }
 
         .navbar-links a {
-          font-size: 0.85rem;
+          font-size: 0.82rem;
           font-weight: 500;
           color: var(--text-secondary);
           transition: var(--transition);
           position: relative;
           padding: 4px 0;
+          letter-spacing: 0.3px;
         }
 
         .navbar-links a::after {
@@ -137,10 +132,9 @@ export default function Navbar() {
           bottom: 0;
           left: 0;
           width: 0;
-          height: 2px;
-          background: var(--gradient-primary);
+          height: 1px;
+          background: var(--text-primary);
           transition: var(--transition);
-          border-radius: 1px;
         }
 
         .navbar-links a:hover {
@@ -153,7 +147,7 @@ export default function Navbar() {
         }
 
         .navbar-links a.active {
-          color: var(--accent-primary);
+          color: var(--text-primary);
         }
 
         .nav-resume-li {
@@ -162,12 +156,13 @@ export default function Navbar() {
 
         .nav-resume-btn {
           padding: 8px 20px !important;
-          border-radius: 8px !important;
-          background: var(--gradient-secondary) !important;
-          color: #fff !important;
+          border-radius: 6px !important;
+          background: var(--text-primary) !important;
+          color: var(--bg-primary) !important;
           font-weight: 600 !important;
-          font-size: 0.8rem !important;
-          border: none !important;
+          font-size: 0.78rem !important;
+          border: 1px solid var(--text-primary) !important;
+          transition: var(--transition) !important;
         }
 
         .nav-resume-btn::after {
@@ -175,8 +170,8 @@ export default function Navbar() {
         }
 
         .nav-resume-btn:hover {
-          transform: scale(1.05) !important;
-          box-shadow: var(--glow-secondary) !important;
+          background: transparent !important;
+          color: var(--text-primary) !important;
         }
 
         .menu-toggle {
@@ -191,16 +186,16 @@ export default function Navbar() {
 
         .menu-toggle span {
           display: block;
-          width: 24px;
-          height: 2px;
+          width: 22px;
+          height: 1.5px;
           background: var(--text-primary);
-          border-radius: 2px;
           transition: var(--transition);
+          transform-origin: center;
         }
 
-        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
         .menu-toggle.open span:nth-child(2) { opacity: 0; }
-        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
 
         @media (max-width: 768px) {
           .menu-toggle { display: flex; }
@@ -209,21 +204,40 @@ export default function Navbar() {
             position: fixed;
             top: 0;
             right: -100%;
-            width: 260px;
+            width: 280px;
             height: 100vh;
-            background: color-mix(in srgb, var(--bg-primary) 96%, transparent);
-            backdrop-filter: blur(20px);
+            background: var(--bg-primary);
             border-left: 1px solid var(--border);
             flex-direction: column;
             align-items: flex-start;
             padding: 80px 32px 32px;
-            gap: 20px;
+            gap: 0;
             transition: var(--transition);
           }
 
           .navbar-links.open { right: 0; }
 
-          .nav-resume-li { margin-left: 0; }
+          .navbar-links a {
+            display: block;
+            padding: 12px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+            width: 100%;
+          }
+
+          .navbar-links a::after { display: none; }
+
+          .nav-resume-li {
+            margin-left: 0;
+            margin-top: 16px;
+          }
+
+          .nav-resume-btn {
+            width: 100%;
+            text-align: center;
+            display: block;
+            padding: 12px 20px !important;
+          }
         }
       `}</style>
     </nav>

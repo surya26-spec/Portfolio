@@ -1,17 +1,23 @@
 import { useEffect, useRef } from 'react'
+import secuVerseImg from '../assets/SecuVerse.png'
+import drowsinessImg from '../assets/Drowsiness.png'
 
 const PROJECTS = [
   {
-    title: 'Driver Drowsiness Detection System',
-    desc: 'Engineered a real-time computer vision system that detects driver fatigue through eye-state analysis at 30 FPS, triggering audible alerts within 2 seconds of prolonged eye closure to reduce accident risk.',
-    tags: ['Python', 'OpenCV', 'Haar Cascade Classifiers'],
-    gradient: 'var(--gradient-primary)',
+    number: '01',
+    title: 'AI-Based Intrusion Detection System (SecuVerse)',
+    category: 'Machine Learning',
+    image: secuVerseImg,
+    desc: 'Designed an ML-based system that classifies network traffic as normal or malicious across multiple attack categories using SVM and Decision Tree models, generating real-time alerts for anomalous traffic.',
+    tags: ['Python', 'Scikit-learn', 'Pandas', 'NumPy'],
   },
   {
-    title: 'AI-Based Intrusion Detection System (SecuVerse)',
-    desc: 'Designed an ML-based system that classifies network traffic as normal or malicious across multiple attack categories using SVM, Decision Tree, and Random Forest models, generating real-time alerts for anomalous traffic.',
-    tags: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Network Security'],
-    gradient: 'var(--gradient-secondary)',
+    number: '02',
+    title: 'Driver Drowsiness Detection System',
+    category: 'Computer Vision',
+    image: drowsinessImg,
+    desc: 'Engineered a real-time computer vision system that detects driver fatigue through eye-state analysis at 30 FPS, triggering audible alerts within 2 seconds of prolonged eye closure to reduce accident risk.',
+    tags: ['Python', 'OpenCV', 'MediaPipe Face Mesh'],
   },
 ]
 
@@ -44,23 +50,24 @@ export default function Projects() {
         </div>
 
         <div className="projects-grid">
-          {PROJECTS.map((project, i) => (
-            <article key={i} className="project-card">
-              <div className="project-glow" style={{ background: project.gradient }} />
-              <div className="project-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="16 18 22 12 16 6" />
-                  <polyline points="8 6 2 12 8 18" />
-                </svg>
+          {PROJECTS.map((project) => (
+            <article key={project.number} className="project-card">
+              <div className="project-image">
+                <img src={project.image} alt={`${project.title} preview`} loading="lazy" />
               </div>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.desc}</p>
-              <div className="project-tags">
-                {project.tags.map(tag => (
-                  <span key={tag} className="project-tag">{tag}</span>
-                ))}
+              <div className="project-meta">
+                <span className="project-number">{project.number}</span>
               </div>
-              <div className="project-shine" />
+              <div className="project-body">
+                <h3 className="project-title">{project.title}</h3>
+                <span className="project-category">{project.category}</span>
+                <p className="project-desc">{project.desc}</p>
+                <div className="project-tags">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="project-tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
             </article>
           ))}
         </div>
@@ -69,100 +76,102 @@ export default function Projects() {
       <style>{`
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
         }
 
         .project-card {
-          background: var(--bg-card);
+          background: var(--bg-primary);
           border: 1px solid var(--border);
-          border-radius: var(--radius-lg);
-          padding: 32px;
+          border-radius: var(--radius);
+          padding: 24px;
           transition: var(--transition);
-          position: relative;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .project-image {
           overflow: hidden;
-          backdrop-filter: blur(10px);
+          border-radius: 8px;
+          margin-bottom: 24px;
+          border: 1px solid var(--border);
         }
 
-        .project-glow {
-          position: absolute;
-          top: -50%;
-          right: -50%;
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          filter: blur(60px);
-          opacity: 0;
-          transition: var(--transition);
-          pointer-events: none;
+        .project-image img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          aspect-ratio: 16 / 9;
+          transition: transform 0.4s ease;
         }
 
-        .project-card:hover .project-glow {
-          opacity: 0.12;
-          transform: scale(1.5);
+        .project-card:hover .project-image img {
+          transform: scale(1.04);
         }
 
         .project-card:hover {
-          border-color: rgba(255, 255, 255, 0.1);
-          transform: translateY(-8px);
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+          border-color: var(--text-muted);
+          transform: translateY(-3px);
         }
 
-        .project-shine {
-          position: absolute;
-          top: 0;
-          left: -75%;
-          width: 50%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
-          transform: skewX(-20deg);
-          transition: var(--transition);
-          pointer-events: none;
-        }
-
-        .project-card:hover .project-shine {
-          left: 125%;
-          transition: 0.8s ease;
-        }
-
-        .project-icon {
-          width: 48px;
-          height: 48px;
+        .project-meta {
           display: flex;
           align-items: center;
-          justify-content: center;
-          background: var(--accent-primary-dim);
-          border-radius: 14px;
-          color: var(--accent-primary);
+          justify-content: space-between;
           margin-bottom: 20px;
-          border: 1px solid var(--accent-primary-border);
+        }
+
+        .project-number {
+          font-family: var(--font-mono);
+          font-size: 0.75rem;
+          color: var(--text-muted);
+          letter-spacing: 2px;
+        }
+
+        .project-body {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
         }
 
         .project-title {
-          font-size: 1.15rem;
+          font-size: 1.25rem;
           font-weight: 700;
-          margin-bottom: 12px;
-          line-height: 1.4;
+          margin-bottom: 6px;
+          line-height: 1.35;
+          color: var(--text-primary);
+          letter-spacing: -0.3px;
+        }
+
+        .project-category {
+          font-size: 0.72rem;
+          font-family: var(--font-mono);
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          color: var(--text-muted);
+          margin-bottom: 16px;
         }
 
         .project-desc {
           font-size: 0.88rem;
           color: var(--text-secondary);
           line-height: 1.8;
-          margin-bottom: 20px;
+          margin-bottom: 24px;
         }
 
         .project-tags {
           display: flex;
           flex-wrap: wrap;
-          gap: 8px;
+          gap: 6px;
+          margin-top: auto;
         }
 
         .project-tag {
           padding: 5px 12px;
-          background: rgba(255, 255, 255, 0.03);
+          background: var(--surface);
           border: 1px solid var(--border);
-          border-radius: 6px;
+          border-radius: 4px;
           font-size: 0.72rem;
           font-family: var(--font-mono);
           color: var(--text-secondary);
@@ -170,13 +179,14 @@ export default function Projects() {
         }
 
         .project-tag:hover {
-          color: var(--accent-primary);
-          border-color: var(--accent-primary-border);
+          color: var(--bg-primary);
+          background: var(--text-primary);
+          border-color: var(--text-primary);
         }
 
         @media (max-width: 768px) {
           .projects-grid { grid-template-columns: 1fr; }
-          .project-card { padding: 24px; }
+          .project-card { padding: 20px; }
         }
       `}</style>
     </section>

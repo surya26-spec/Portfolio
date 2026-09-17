@@ -1,14 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
 const THEMES = [
-  { id: 'network', label: 'Network Blue', colors: ['#3B82F6', '#22D3EE', '#93C5FD'] },
+  { id: 'monochrome', label: 'Monochrome', colors: ['#111111', '#555555', '#e5e5e5'] },
 ]
 
 const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'network'
+    return localStorage.getItem('portfolio-theme') || 'monochrome'
   })
 
   useEffect(() => {
