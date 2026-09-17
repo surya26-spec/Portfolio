@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import profileImage from '../../Profile.png'
 
 const TYPING_TITLES = [
   'Computer Networking Enthusiast',
@@ -40,6 +41,10 @@ export default function Hero({ onPreviewResume }) {
 
   return (
     <section id="hero" className="hero" ref={containerRef}>
+      <div className="hero-layout">
+      <div className="hero-image-wrap">
+        <img className="hero-image" src={profileImage} alt="Surya P" />
+      </div>
       <div ref={ref} className="hero-content reveal">
         <span className="hero-label">Final-Year B.Tech IT Student</span>
         <h1 className="hero-name">Surya P</h1>
@@ -81,6 +86,7 @@ export default function Hero({ onPreviewResume }) {
           </a>
         </div>
       </div>
+      </div>
 
       <div className="hero-scroll-indicator">
         <div className="scroll-mouse">
@@ -105,6 +111,31 @@ export default function Hero({ onPreviewResume }) {
           z-index: 1;
           max-width: 720px;
           text-align: center;
+        }
+
+        .hero-layout {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: clamp(48px, 8vw, 112px);
+          width: min(100%, 1120px);
+        }
+
+        .hero-image-wrap {
+          flex: 0 0 clamp(220px, 28vw, 320px);
+          aspect-ratio: 1;
+          border: 1px solid var(--border);
+          border-radius: 18px;
+          padding: 10px;
+          background: var(--bg-secondary);
+        }
+
+        .hero-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          border-radius: 12px;
         }
 
         .hero-label {
@@ -258,6 +289,8 @@ export default function Hero({ onPreviewResume }) {
 
         @media (max-width: 768px) {
           .hero { padding: 100px 20px 60px; }
+          .hero-layout { flex-direction: column; gap: 40px; }
+          .hero-image-wrap { flex-basis: 220px; width: min(58vw, 260px); }
           .hero-name { letter-spacing: -2px; }
           .hero-desc { font-size: 0.95rem; }
           .hero-actions { flex-direction: column; align-items: center; }
