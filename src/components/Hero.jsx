@@ -88,12 +88,6 @@ export default function Hero({ onPreviewResume }) {
       </div>
       </div>
 
-      <div className="hero-scroll-indicator">
-        <div className="scroll-mouse">
-          <div className="scroll-dot" />
-        </div>
-      </div>
-
       <style>{`
         .hero {
           min-height: 100vh;
@@ -255,36 +249,6 @@ export default function Hero({ onPreviewResume }) {
           border-color: var(--text-primary);
           color: var(--text-primary);
           transform: translateY(-2px);
-        }
-
-        .hero-scroll-indicator {
-          position: absolute;
-          bottom: 40px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        .scroll-mouse {
-          width: 22px;
-          height: 36px;
-          border: 1.5px solid var(--border);
-          border-radius: 11px;
-          display: flex;
-          justify-content: center;
-          padding-top: 8px;
-        }
-
-        .scroll-dot {
-          width: 2px;
-          height: 6px;
-          border-radius: 2px;
-          background: var(--text-muted);
-          animation: scrollDot 2s ease-in-out infinite;
-        }
-
-        @keyframes scrollDot {
-          0% { transform: translateY(0); opacity: 1; }
-          100% { transform: translateY(12px); opacity: 0; }
         }
 
         @media (max-width: 768px) {
