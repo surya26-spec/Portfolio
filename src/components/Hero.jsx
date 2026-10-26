@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import profileImage from '../../Profile.png'
+import profileImage from '../../professional_look.png'
 
 const TYPING_TITLES = [
   'Computer Networking Enthusiast',
